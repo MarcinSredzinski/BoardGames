@@ -1,0 +1,74 @@
+﻿@model  BoardGames.Web.ViewModels.DetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BoardGame</h4>
+    <hr />
+    <table class="table">
+        <tr>
+            <th>
+                Name of the game
+            </th>
+            <th>
+                Minimal number of players
+            </th>
+            <th>
+                Maximal number of players
+            </th>
+            <th>
+                Minimal age
+            </th>
+            <th>
+                Date of first publication
+            </th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.BoardGameDetailed.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.BoardGameDetailed.MinNumberOfPlayers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.BoardGameDetailed.MaxNumberOfPlayers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.BoardGameDetailed.MinimalAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.BoardGameDetailed.PublicationDate)
+            </td>
+        </tr>
+    </table>
+    <table class="table">
+        <tr>
+            <th>
+               Date of request
+            </th>
+            <th>
+                Source of request
+            </th>
+           
+        </tr>
+        @foreach (var item in Model.Logs)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.RequestDateTime)</td>
+                <td>>@Html.DisplayFor(modelItem => item.RequestSource)</td>
+
+            </tr>
+        }
+
+
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BoardGameDetailed.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Core.Library.Entities.BoardGame>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of Games</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create","Home", new { @class = "btn btn-primary btn-large" })
+  
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Name of the game
+        </th>
+        <th>
+            Minimal number of players
+        </th>
+        <th>
+            Maximal number of players
+        </th>
+        <th>
+            Minimal age
+        </th>
+        <th>
+            Date of first publication
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinNumberOfPlayers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxNumberOfPlayers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinimalAge)
+            </td>
+            <td>
+                @*@Html.Display(item.PublicationDate.ToShortDateString())*@
+                @Html.DisplayFor(modelItem => item.PublicationDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
+
+            </td>
+        </tr>
+        
+    }
+
+</table>
