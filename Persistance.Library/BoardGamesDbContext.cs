@@ -13,7 +13,7 @@ namespace Persistance.Library
         
         public DbSet<BoardGame> BoardGames { get; set; }
         public DbSet<RequestSourceTimeLog> RequestSourceTimeLogs { get; set; }
-        private static DbContextOptions GetOptions(string  connectionString = "Server=tcp:bestboardbase.database.windows.net,1433;Initial Catalog=BestBoardBase;Persist Security Info=False;User ID={board};Password={Games1234};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Data Source=bestboardbase.database.windows.net;Initial Catalog=BestBoardBase;User ID=board;Password=Games1234;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+        private static DbContextOptions GetOptions(string  connectionString ="//TODO insert your connection string here!" )
         {
             return SqlServerDbContextOptionsExtensions.UseSqlServer(new DbContextOptionsBuilder(), connectionString).Options;
         }
